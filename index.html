@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en-US" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cap Crack™ Official | The Best Ergonomic Jar Opener for Arthritis & Weak Grip</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Stop struggling with stubborn jars. Cap Crack™ is the #1 recommended ergonomic kitchen tool in the USA for arthritis relief, weak grip assistance, and effortless kitchen independence. 50% Off Today!">
+    <meta name="keywords"
+        content="Best jar opener USA, Cap Crack reviews, arthritis kitchen tools, manual jar opener, weak grip aids, easy open jars, ergonomic kitchen gadgets">
+    <meta name="author" content="Cap Crack™ Authorized Distributor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://capcrackopener.vercel.app">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://capcrackopener.vercel.app/">
+    <meta property="og:title" content="Cap Crack™ | Independence Engineered for Everyday Life">
+    <meta property="og:description"
+        content="Effortlessly open any jar or bottle. The ultimate ergonomic tool designed for people with arthritis or loss of grip strength. 90-Day Money-Back Guarantee.">
+    <meta property="og:image" content="images/product-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://capcrackopener.vercel.app/">
+    <meta property="twitter:title" content="Cap Crack™ | No More Jar Opening Struggles">
+    <meta property="twitter:description"
+        content="Restore your kitchen independence with Cap Crack™. Professional grade ergonomic opener. Fast 2-3 Day U.S. Shipping.">
+    <meta property="twitter:image" content="images/product-og.jpg">
+
+    <!-- JSON-LD Structured Data (Product Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Cap Crack™ Ergonomic Jar Opener",
+      "image": [
+        "https://capcrackopener.vercel.app/images/imgi_13_main-product-1.png"
+      ],
+      "description": "Ergonomic tool designed to open jars and bottles effortlessly, reducing wrist strain and joint discomfort.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Cap Crack™"
+      },
+      "sku": "CC-US-01",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "21191"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://capcrackopener.vercel.app#checkout",
+        "priceCurrency": "USD",
+        "price": "29.99",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            green: '#9EF27D', /* The neon green from the reference */
+                            black: '#0A0A0A',
+                            yellow: '#FFC107', /* Logo and stars */
+                            red: '#E03131', /* Discount text */
+                            gray: '#F8F9FA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .radio-custom:checked+div {
+            border-color: #0A0A0A;
+            background-color: #FAFAFA;
+        }
+
+        .radio-custom:checked+div .radio-dot {
+            background-color: #0A0A0A;
+            box-shadow: inset 0 0 0 4px white;
+        }
+
+        .btn-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: scale(0.95);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .modal.open .modal-content {
+            transform: scale(1);
+        }
+
+        /* Cinematic Animation Engine */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cinematic Noise Overlay */
+        .cinematic-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-900 bg-white antialiased">
+    <!-- Overlay de Ruído Cinematográfico -->
+    <div class="cinematic-noise"></div>
+
+    <!-- 1️⃣ ALERT BAR -->
+    <div
+        class="bg-brand-green text-black text-center py-2.5 px-4 text-xs font-extrabold uppercase tracking-wide flex flex-col md:flex-row justify-center items-center gap-1 md:gap-3">
+        <span>Limited-Time 50% Savings + 90-Day Money-Back Guarantee</span>
+        <span class="hidden md:inline">|</span>
+        <span>Fast 2–3 Day U.S. Shipping</span>
+    </div>
+
+    <!-- 2️⃣ BRAND IDENTITY / NAVBAR -->
+    <nav class="bg-brand-black text-white px-4 py-4 md:py-5 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo area -->
+            <div class="flex items-center gap-3">
+                <img src="images/imgi_1_logo-white.png" alt="Cap Crack Logo" class="h-6 md:h-8 w-auto object-contain">
+            </div>
+
+            <!-- Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+                <a href="#reviews" class="hover:text-brand-yellow transition text-gray-300">Reviews</a>
+                <a href="#faq" class="hover:text-brand-yellow transition text-gray-300">FAQs</a>
+                <a href="#guarantee" class="hover:text-brand-yellow transition text-gray-300">Guarantee</a>
+                <a href="https://www.fasttrack36.com/PHPWHDRK/2R9HWBHT/?uid=48567"
+                    class="bg-white text-black px-5 py-2 rounded-lg hover:bg-gray-200 transition font-bold">Secure
+                    Checkout</a>
+            </div>
+
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="lg:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Trust Bar Under Nav -->
+    <div
+        class="bg-white border-b border-gray-100 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-widest flex justify-center items-center gap-2">
+        <i class="fa-solid fa-lock text-black"></i> 100% Encrypted & Secure Checkout
+    </div>
+
+    <!-- 3️⃣ HERO SECTION (THE HOOK) -->
+    <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <!-- Headline & Subheadline -->
+            <h2
+                class="font-display font-black text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] tracking-tight mb-5 text-black">
+                End the Daily Struggle With Jars and Bottles — Without Pain.
+            </h2>
+            <p class="text-gray-600 text-lg md:text-xl mb-12 leading-relaxed max-w-3xl mx-auto">
+                If twisting lids causes <strong class="text-black">wrist strain</strong>, <strong
+                    class="text-black">joint discomfort</strong>, or <strong class="text-black">loss of grip
+                    strength</strong>, this simple ergonomic tool restores effortless control in seconds.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start reveal" style="transition-delay: 0.1s;">
+            <!-- Left: Product Image -->
+            <div
+                class="relative bg-gray-50 rounded-[3rem] p-6 md:p-12 border border-gray-100 flex justify-center items-center overflow-hidden">
+                <div
+                    class="absolute top-6 right-6 bg-brand-yellow text-black font-black uppercase text-center p-3 w-24 rounded-2xl shadow-lg rotate-3 z-10 hover:rotate-0 transition-transform duration-300">
+                    <span class="block text-2xl leading-none">90</span>
+                    <span class="block text-[10px] leading-tight mt-1">Day<br>Money-Back<br>Guarantee</span>
+                </div>
+                <img src="images/imgi_13_main-product-1.png" alt="Cap Crack Ergonomic Tool [SEO]"
+                    class="w-full max-w-[120%] md:max-w-[110%] object-contain relative z-0 drop-shadow-2xl hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <!-- Right: Content -->
+            <div class="flex flex-col justify-center h-full">
+                <!-- Bullets -->
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="mt-1 w-6 h-6 rounded-full bg-brand-green/20 text-green-700 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <p class="text-[17px] leading-relaxed"><strong class="text-black">Reduces Hand & Wrist
+                                Strain</strong> — Designed to increase leverage without overexertion.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="mt-1 w-6 h-6 rounded-full bg-brand-green/20 text-green-700 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <p class="text-[17px] leading-relaxed"><strong class="text-black">Adjusts to Any Lid
+                                Size</strong> — From water bottles to sealed pickle jars.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="mt-1 w-6 h-6 rounded-full bg-brand-green/20 text-green-700 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <p class="text-[17px] leading-relaxed"><strong class="text-black">No Batteries. No
+                                Noise.</strong> Just mechanical efficiency that works every time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4️⃣ THE GATEWAY SECTION (DUAL PATH) -->
+    <section id="checkout" class="py-20 bg-gray-50 border-t border-gray-100 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tighter text-black mb-4">
+                    Ready to End the Struggle? <br class="hidden md:block">Choose Your Path to Independence.
+                </h2>
+                <p class="text-gray-500 font-medium text-lg">Select the option that best fits your needs today.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch reveal">
+
+                <!-- Option 1 — Preferred Path (The Action) -->
+                <div
+                    class="bg-white border-2 border-brand-black rounded-[3rem] p-8 md:p-12 shadow-2xl relative flex flex-col justify-between">
+                    <div
+                        class="absolute -top-4 left-6 bg-black text-brand-yellow text-xs font-black uppercase tracking-widest px-6 py-2 rounded-full flex gap-2 items-center shadow-lg">
+                        <i class="fa-solid fa-star text-[10px]"></i> ⭐ Most Customers Choose This
+                    </div>
+
+                    <div class="pt-6">
+                        <h3
+                            class="font-display font-black text-3xl md:text-4xl uppercase mb-6 tracking-tighter text-black leading-tight">
+                            Lock In 50% Off & Secure Yours Now
+                        </h3>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3 text-sm font-bold text-gray-700">
+                                <i class="fa-solid fa-users text-black w-5 text-center"></i>
+                                <span>21,191+ Verified Customers</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm font-bold text-gray-700">
+                                <i class="fa-solid fa-star text-brand-yellow w-5 text-center"></i>
+                                <span>4.7/5 Global Rating</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm font-bold text-gray-700">
+                                <i class="fa-solid fa-shield-halved text-black w-5 text-center"></i>
+                                <span>90-Day Risk-Free Guarantee</span>
+                            </div>
+                        </div>
+
+                        <div class="inline-block bg-brand-green text-black px-6 py-2 rounded-xl mb-8">
+                            <span class="font-black text-xl">From $29.99 Today</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="https://www.fasttrack36.com/PHPWHDRK/2R9HWBHT/?uid=48567"
+                            class="btn-hover block w-full bg-brand-black text-white text-center py-6 rounded-2xl font-display font-black text-xl uppercase tracking-wider border-b-4 border-gray-800 focus:outline-none mb-4 group shadow-lg">
+                            COMPLETE MY SECURE ORDER NOW
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-lock text-gray-400 text-xs"></i>
+                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest text-center">SSL
+                                SECURED & ENCRYPTED</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2 — Secondary Path (The Education) -->
+                <div
+                    class="bg-white border border-gray-200 rounded-[3rem] p-8 md:p-12 shadow-sm flex flex-col justify-between opacity-95">
+                    <div>
+                        <p class="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 italic">Not ready
+                            yet?</p>
+                        <h3 class="font-display font-black text-2xl md:text-3xl uppercase mb-8 text-black opacity-80">
+                            See How Cap Crack Improves Life
+                        </h3>
+
+                        <p class="text-gray-600 text-sm mb-8 leading-relaxed font-medium">
+                            Discover the engineering behind the most efficient manual jar opener on the market. See why
+                            thousands of Americans are regaining their kitchen independence.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-10">
+                            <span
+                                class="bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 text-[11px] font-bold text-gray-600">Grip
+                                stability</span>
+                            <span
+                                class="bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 text-[11px] font-bold text-gray-600">Torque
+                                efficiency</span>
+                            <span
+                                class="bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 text-[11px] font-bold text-gray-600">Daily
+                                independence</span>
+                        </div>
+                    </div>
+
+                    <a href="https://www.fasttrack36.com/PHPWHDRK/2R9HWBHT/?uid=48566"
+                        class="inline-block border-2 border-black text-black text-center py-5 rounded-xl font-display font-black text-sm uppercase tracking-widest hover:bg-black hover:text-white transition duration-500">
+                        SEE FULL FEATURES & REVIEWS
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Guarantee Block -->
+            <div id="guarantee"
+                class="mt-12 bg-white border border-gray-100 rounded-[2rem] p-6 md:p-10 flex flex-col sm:flex-row items-center gap-8 shadow-sm reveal"
+                style="transition-delay: 0.2s;">
+                <div class="w-20 h-20 bg-brand-yellow/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-shield-cat text-3xl text-brand-yellow"></i>
+                </div>
+                <div class="text-center sm:text-left text-black">
+                    <h4 class="font-display font-black text-2xl mb-2">90-Day Satisfaction Shield</h4>
+                    <p class="text-gray-600 text-[15px] leading-relaxed max-w-2xl font-medium">
+                        Since we are the authorized distributor for North America, we stand firmly behind every unit. If
+                        you’re not satisfied within 90 days, return it for a full refund. No questions. No hassle.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5️⃣ SOCIAL PROOF SECTION -->
+    <section id="reviews" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="flex justify-center gap-1 text-brand-yellow text-xl mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="font-display font-black text-3xl md:text-4xl text-black">4.7/5 Based on 21,191+ Verified
+                    Customers</h2>
+                <div class="w-16 h-1 bg-brand-green mx-auto mt-6 mb-6"></div>
+                <p
+                    class="text-gray-600 font-medium inline-block bg-gray-50 px-6 py-2 rounded-full border border-gray-100">
+                    <strong class="text-black">97.3%</strong> of users say they would recommend Cap Crack to friends or
+                    family.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal" style="transition-delay: 0.1s;">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex flex-col h-full">
+                    <div class="flex text-brand-yellow text-xs gap-0.5 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed flex-grow font-medium italic">"I have arthritis in
+                        both thumbs. This gives me leverage without pain. I can open my mineral water again without
+                        asking my husband."</p>
+                    <div class="mt-6 flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs uppercase">
+                            MR</div>
+                        <div>
+                            <p class="font-bold text-sm leading-tight text-black">Margaret R.</p>
+                            <p class="text-xs text-gray-500">Phoenix, AZ <i
+                                    class="fa-solid fa-circle-check text-green-600 ml-1"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex flex-col h-full">
+                    <div class="flex text-brand-yellow text-xs gap-0.5 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed flex-grow font-medium italic">"After wrist surgery,
+                        twisting lids hurt constantly. This tool restored control without strain."</p>
+                    <div class="mt-6 flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs uppercase">
+                            RD</div>
+                        <div>
+                            <p class="font-bold text-sm leading-tight text-black">Robert D.</p>
+                            <p class="text-xs text-gray-500">Dallas, TX <i
+                                    class="fa-solid fa-circle-check text-green-600 ml-1"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex flex-col h-full">
+                    <div class="flex text-brand-yellow text-xs gap-0.5 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed flex-grow font-medium italic">"I live alone. I don’t
+                        like depending on neighbors. This brought back my independence."</p>
+                    <div class="mt-6 flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs uppercase">
+                            HP</div>
+                        <div>
+                            <p class="font-bold text-sm leading-tight text-black">Helen P.</p>
+                            <p class="text-xs text-gray-500">Orlando, FL <i
+                                    class="fa-solid fa-circle-check text-green-600 ml-1"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex flex-col h-full">
+                    <div class="flex text-brand-yellow text-xs gap-0.5 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed flex-grow font-medium italic">"I own a restaurant
+                        and open dozens of jars daily. It saves time and reduces fatigue."</p>
+                    <div class="mt-6 flex items-center gap-3 border-t border-gray-200 pt-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs uppercase">
+                            GK</div>
+                        <div>
+                            <p class="font-bold text-sm leading-tight text-black">George K.</p>
+                            <p class="text-xs text-gray-500">Newark, NJ <i
+                                    class="fa-solid fa-circle-check text-green-600 ml-1"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#checkout"
+                    class="inline-block bg-black text-white font-bold uppercase tracking-wide px-8 py-4 rounded-xl shadow-lg border-b-4 border-gray-800 hover:bg-gray-900 transition focus:outline-none">
+                    JOIN 21,191+ HAPPY CUSTOMERS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6️⃣ FAQ SECTION -->
+    <section id="faq" class="py-20 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-3xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-display font-black text-3xl md:text-4xl text-black">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 bg-brand-green mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-4 reveal" style="transition-delay: 0.1s;">
+                <!-- FAQ 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">1. Is Cap Crack suitable for people with arthritis or
+                            reduced grip strength?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>Yes. Its leverage-based design minimizes torque strain and improves mechanical efficiency.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">2. What sizes does it fit?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>It adjusts to most household lids — including bottles, jars, condiment containers, and sealed
+                            caps.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">3. Does it require electricity or batteries?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>No. It is fully manual, eliminating mechanical failure risks.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">4. Is it durable?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>Constructed from reinforced hard plastic engineered for repeated daily use.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">5. Can it be used left-handed?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>Yes. The ergonomic grip supports both right- and left-handed users.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">6. How long does shipping take in the U.S.?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>Orders ship from our U.S. warehouse within 2–3 business days.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer faq-btn group">
+                    <div class="px-6 py-5 flex justify-between items-center group-hover:bg-gray-50 transition">
+                        <h4 class="font-bold pr-4 text-[15px]">7. What if it doesn’t work for me?</h4>
+                        <i class="fa-solid fa-plus text-gray-400 group-hover:text-black transition"></i>
+                    </div>
+                    <div
+                        class="px-6 pb-5 hidden text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-2 faq-content bg-gray-50">
+                        <p>You’re protected by a 90-day money-back guarantee. Simply return it for a full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7️⃣ FOOTER & LEGAL -->
+    <footer class="bg-brand-black text-gray-400 py-16 border-t-[10px] border-brand-green">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid md:grid-cols-3 gap-10 items-center text-center md:text-left">
+
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <img src="images/imgi_1_logo-white.png" alt="Cap Crack Logo"
+                            class="h-6 w-auto object-contain opacity-90">
+                    </div>
+                    <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-1">Functional Kitchen
+                        Innovation</p>
+                    <p class="text-[10px] text-gray-600 font-medium">Authorized Distributor for North America</p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-col md:flex-row flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-medium">
+                    <a href="https://www.fasttrack36.com/PHPWHDRK/2R9HWBHT/?uid=48567"
+                        class="hover:text-white transition">Secure Checkout</a>
+                    <button onclick="openModal('privacyModal')"
+                        class="hover:text-white transition text-left md:text-center focus:outline-none">Privacy
+                        Policy</button>
+                    <button onclick="openModal('termsModal')"
+                        class="hover:text-white transition text-left md:text-center focus:outline-none">Terms of
+                        Use</button>
+                    <button onclick="openModal('refundModal')"
+                        class="hover:text-white transition text-left md:text-center focus:outline-none">Refund
+                        Policy</button>
+                    <button onclick="openModal('supportModal')"
+                        class="hover:text-white transition text-left md:text-center focus:outline-none">Contact
+                        Support</button>
+                </div>
+
+                <!-- Trust -->
+                <div class="flex flex-col items-center md:items-end gap-2">
+                    <div class="flex gap-2">
+                        <i class="fa-brands fa-cc-visa text-2xl"></i>
+                        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+                        <i class="fa-brands fa-cc-amex text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] font-bold tracking-widest uppercase text-gray-500"><i
+                            class="fa-solid fa-lock"></i> SSL Secured Checkout</p>
+                    <p class="text-[10px] uppercase text-gray-600">Encrypted Transactions</p>
+                </div>
+
+            </div>
+
+            <div
+                class="mt-12 pt-8 border-t border-gray-800 text-center text-[11px] text-gray-500 space-y-4 leading-relaxed">
+                <p>&copy; 2026 Cap Crack™. All Rights Reserved.</p>
+                <p>This site is operated by an <strong class="text-gray-400">authorized independent distributor</strong>
+                    of Cap Crack™ products for the North American market. We are not the manufacturer. All product
+                    claims, warranties, and guarantees are provided by the manufacturer and honored through our
+                    distribution agreement.</p>
+                <p>Cap Crack™ is a kitchen accessibility tool. It is not a medical device and is not intended to
+                    diagnose, treat, cure, or prevent any medical condition. Individual results may vary. Consult a
+                    healthcare professional for medical advice.</p>
+                <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800/50 max-w-2xl mx-auto mt-4">
+                    <p class="text-gray-400 uppercase tracking-widest font-black text-[9px] mb-1">Affiliate &
+                        Distribution Disclosure</p>
+                    <p class="text-gray-600">Results and testimonials shown are representative of individual customer
+                        experiences and may not reflect typical outcomes. We may receive commissions for purchases made
+                        through links on this site as part of our distributor relationship.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LEGAL MODALS -->
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60">
+        <div
+            class="modal-content bg-white w-full max-w-2xl rounded-3xl p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeModal('privacyModal')"
+                class="absolute top-6 right-6 text-gray-400 hover:text-black transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <h2 class="font-display font-black text-2xl mb-6">Privacy Policy</h2>
+            <div class="prose prose-sm text-gray-600 space-y-4">
+                <p>Last updated: February 2026</p>
+                <p>At Cap Crack, accessible from this site, one of our main priorities is the privacy of our visitors.
+                    This Privacy Policy document contains types of information that is collected and recorded by Cap
+                    Crack and how we use it.</p>
+                <h3 class="font-bold text-black mt-6">Information We Collect</h3>
+                <p>We collect information to provide better services to all our users. The personal information that you
+                    are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at
+                    the point we ask you to provide your personal information.</p>
+                <p>If you contact us directly, we may receive additional information about you such as your name, email
+                    address, phone number, the contents of the message and/or attachments you may send us, and any other
+                    information you may choose to provide.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60">
+        <div
+            class="modal-content bg-white w-full max-w-2xl rounded-3xl p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeModal('termsModal')"
+                class="absolute top-6 right-6 text-gray-400 hover:text-black transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <h2 class="font-display font-black text-2xl mb-6">Terms of Use</h2>
+            <div class="prose prose-sm text-gray-600 space-y-4">
+                <p>Welcome to Cap Crack.</p>
+                <p>These terms and conditions outline the rules and regulations for the use of Cap Crack's Website. By
+                    accessing this website we assume you accept these terms and conditions. Do not continue to use Cap
+                    Crack if you do not agree to take all of the terms and conditions stated on this page.</p>
+                <h3 class="font-bold text-black mt-6">License</h3>
+                <p>Unless otherwise stated, Cap Crack and/or its licensors own the intellectual property rights for all
+                    material on Cap Crack. All intellectual property rights are reserved. You may access this from Cap
+                    Crack for your own personal use subjected to restrictions set in these terms and conditions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Modal -->
+    <div id="refundModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60">
+        <div
+            class="modal-content bg-white w-full max-w-2xl rounded-3xl p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeModal('refundModal')"
+                class="absolute top-6 right-6 text-gray-400 hover:text-black transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <h2 class="font-display font-black text-2xl mb-6">Refund Policy</h2>
+            <div class="prose prose-sm text-gray-600 space-y-4">
+                <p>Our Return & Refund Policy was last updated February 2026.</p>
+                <p>Thank you for shopping at Cap Crack.</p>
+                <p>If, for any reason, You are not completely satisfied with a purchase We invite You to review our
+                    policy on refunds and returns. The following terms are applicable for any products that You
+                    purchased with Us.</p>
+                <h3 class="font-bold text-black mt-6">90-Day Money-Back Guarantee</h3>
+                <p>We are so confident in our product that we offer a 90-day money-back guarantee. If you are not
+                    satisfied with your purchase, you may return it within 90 days from the date of purchase for a full
+                    refund. No questions asked.</p>
+                <p>To exercise your right of return, please contact our customer support team.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="supportModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60">
+        <div
+            class="modal-content bg-white w-full max-w-2xl rounded-3xl p-8 max-h-[85vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeModal('supportModal')"
+                class="absolute top-6 right-6 text-gray-400 hover:text-black transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <h2 class="font-display font-black text-2xl mb-6">Contact Support</h2>
+            <div class="prose prose-sm text-gray-600 space-y-4">
+                <p>We are here to help. Reach out to us using any of the methods below:</p>
+
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 mt-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-envelope text-2xl text-black"></i>
+                        <div>
+                            <h4 class="font-bold text-black">Email Us</h4>
+                            <p class="text-sm">support@capcrack.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fa-solid fa-phone text-2xl text-black"></i>
+                        <div>
+                            <h4 class="font-bold text-black">Call Us</h4>
+                            <p class="text-sm">1-800-123-4567</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-4">Our support hours are Monday–Friday, 9:00 AM to 6:00 PM EST.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Modal Logic
+        function openModal(modalId) {
+            document.body.style.overflow = 'hidden';
+            document.getElementById(modalId).classList.add('open');
+        }
+
+        function closeModal(modalId) {
+            document.body.style.overflow = '';
+            document.getElementById(modalId).classList.remove('open');
+        }
+
+        // Close modal on click outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Cinematic Animation Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((element) => {
+                observer.observe(element);
+            });
+        });
+
+        // FAQ Interaction Script
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.querySelector('.faq-content');
+                const icon = btn.querySelector('i');
+
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                    btn.classList.add('border-gray-400');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                    btn.classList.remove('border-gray-400');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
